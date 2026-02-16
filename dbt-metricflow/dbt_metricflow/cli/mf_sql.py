@@ -234,7 +234,7 @@ def cli(  # noqa: D103
 
     click.echo(sql)
     elapsed_seconds = time.perf_counter() - start_time_seconds
-    click.echo(f"mf-sql: query end ({elapsed_seconds:.2f}s)")
+    click.echo(f"mf-sql: query end ({elapsed_seconds:.4f}s)")
 
 
 if __name__ == "__main__":
