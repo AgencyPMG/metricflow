@@ -4,6 +4,7 @@ import datetime as dt
 import logging
 import sys
 import textwrap
+import time
 from pathlib import Path
 from typing import Dict, List, Optional, Sequence
 
@@ -192,6 +193,8 @@ def cli(  # noqa: D103
     show_dataflow_plan: bool,
     show_sql_descriptions: bool,
 ) -> None:
+    start_time_seconds = time.perf_counter()
+    click.echo("mf-sql: query start")
     mf_engine = _build_fast_path_engine(manifest_source=semantic_manifest, dialect=dialect)
 
     mf_request = MetricFlowQueryRequest.create_with_random_request_id(
@@ -230,6 +233,8 @@ def cli(  # noqa: D103
         click.echo("")
 
     click.echo(sql)
+    elapsed_seconds = time.perf_counter() - start_time_seconds
+    click.echo(f"mf-sql: query end ({elapsed_seconds:.2f}s)")
 
 
 if __name__ == "__main__":
