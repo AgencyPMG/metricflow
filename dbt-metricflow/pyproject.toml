@@ -43,6 +43,7 @@ files = [
 
 [project.scripts]
 mf = 'dbt_metricflow.cli.main:cli'
+mf-sql = 'dbt_metricflow.cli.mf_sql:cli'
 
 [tool.hatch.metadata.hooks.requirements_txt.optional-dependencies]
 dbt-bigquery = [
