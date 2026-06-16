@@ -189,7 +189,9 @@ def _build_fast_path_engine(manifest_source: str, dialect: str) -> MetricFlowEng
     type=str,
     multiple=True,
     default=(),
-    help=("SQL-like where statement string. Repeat for multiple conditions (ANDed together). Example: \"{{ Dimension('order_id__revenue') }} > 100\""),
+    help=(
+        "SQL-like where statement string. Repeat for multiple conditions (ANDed together). Example: \"{{ Dimension('order_id__revenue') }} > 100\""
+    ),
 )
 @click.option(
     "--start-time",
